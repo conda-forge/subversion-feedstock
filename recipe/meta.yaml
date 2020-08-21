@@ -10,7 +10,7 @@ source:
   sha256: 6ba8e218f9f97a83a799e58a3c6da1221d034b18d9d8cbbcb6ec52ab11722102
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -23,6 +23,7 @@ requirements:
     - nasm
     - make
     - python >=2.7,<3
+    - perl >=5.8.0
   host:
     - boost-cpp
     - libapr
@@ -39,11 +40,13 @@ requirements:
     - cyrus-sasl  # [unix]
     - libmagic  # [unix]
     - serf  # [linux]
+    - swig
   run:
     - libapr
     - libaprutil
     - gettext
     - expat
+    - perl >=5.8.0
 
 test:
   commands:
