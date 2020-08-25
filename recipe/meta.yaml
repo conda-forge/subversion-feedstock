@@ -23,7 +23,6 @@ requirements:
     - nasm
     - make
     - python >=2.7,<3
-    - perl >=5.8.0
   host:
     - boost-cpp
     - libapr
@@ -41,6 +40,7 @@ requirements:
     - libmagic  # [unix]
     - serf  # [linux]
     - swig
+    - perl >=5.8.0
   run:
     - libapr
     - libaprutil
