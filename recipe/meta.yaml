@@ -46,11 +46,15 @@ requirements:
     - libaprutil
     - gettext
     - expat
-    - perl >=5.8.0
+    - {{ pin_compatible('perl', max_pin='X.X.X') }}
 
 test:
+  requires:
+    - git
   commands:
     - svn --help
+    - perl -e 'use SVN::Client; use SVN::Core;'
+    - git svn --version
 
 about:
   home: https://subversion.apache.org/
