@@ -51,9 +51,7 @@ requirements:
 test:
   commands:
     - svn --help
-  imports:
-    - SVN::Client
-    - SVN::Core
+    - perl -e 'use SVN::Client; use SVN::Core;'
 
 about:
   home: https://subversion.apache.org/
