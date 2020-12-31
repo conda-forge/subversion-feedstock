@@ -5,11 +5,13 @@ Home: https://subversion.apache.org/
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/subversion-feedstock/blob/master/LICENSE.txt)
 
 Summary: Enterprise-class centralized version control for the masses
 
+Development: https://subversion.apache.org/source-code.html
 
+Documentation: https://subversion.apache.org/docs/
 
 Current build status
 ====================
