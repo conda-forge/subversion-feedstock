@@ -18,6 +18,9 @@ make -j ${CPU_COUNT}
 make -j ${CPU_COUNT} check CLEANUP=true TESTS=subversion/tests/cmdline/basic_tests.py
 make install
 
-make swig-pl
-make check-swig-pl
-make install-swig-pl
+make swig-pl-lib
+make install-swig-pl-lib
+pushd subversion/bindings/swig/perl/native
+perl Makefile.PL PREFIX="${PREFIX}"
+make install
+popd
