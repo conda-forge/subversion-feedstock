@@ -21,6 +21,6 @@ make install
 make swig-pl-lib
 make install-swig-pl-lib
 pushd subversion/bindings/swig/perl/native
-perl Makefile.PL PREFIX="${PREFIX}"
+perl Makefile.PL INSTALLDIRS=site
 make install
 popd
