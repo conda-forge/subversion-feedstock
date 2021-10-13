@@ -46,7 +46,7 @@ requirements:
     - libaprutil
     - gettext
     - expat
-    - perl >=5.8.0
+    - perl
 
 test:
   commands:
