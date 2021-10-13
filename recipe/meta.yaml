@@ -40,7 +40,7 @@ requirements:
     - libmagic  # [unix]
     - serf  # [linux]
     - swig
-    - perl >=5.8.0
+    - perl
   run:
     - libapr
     - libaprutil
