@@ -22,10 +22,14 @@ lz4_c:
 - 1.9.3
 openssl:
 - 1.1.1
+perl:
+- 5.26.2
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
   lz4-c:
+    max_pin: x.x.x
+  perl:
     max_pin: x.x.x
   sqlite:
     max_pin: x
