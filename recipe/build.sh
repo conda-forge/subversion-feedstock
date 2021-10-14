@@ -12,8 +12,7 @@ fi
   --enable-svnxx \
   --enable-bdb6 \
   --with-sqlite="${PREFIX}" \
-  --disable-static \
-  --with-swig-perl=${BUILD_PREFIX}/bin/perl
+  --disable-static
 
 make -j ${CPU_COUNT}
 make -j ${CPU_COUNT} check CLEANUP=true TESTS=subversion/tests/cmdline/basic_tests.py
@@ -22,6 +21,6 @@ make install
 make swig-pl-lib
 make install-swig-pl-lib
 pushd subversion/bindings/swig/perl/native
-perl Makefile.PL PREFIX="${PREFIX}" INSTALLDIRS=site INSTALLARCHLIB="${PREFIX}/lib/perl5/5.32" INSTALLSITEARCH="${PREFIX}/lib/perl5/5.32/site_perl"
+perl Makefile.PL INSTALLDIRS=site
 make install
 popd
