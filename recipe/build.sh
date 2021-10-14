@@ -12,8 +12,7 @@ fi
   --enable-svnxx \
   --enable-bdb6 \
   --with-sqlite="${PREFIX}" \
-  --disable-static \
-  --with-swig-perl=${PREFIX}/bin/perl
+  --disable-static
 
 make -j ${CPU_COUNT}
 make -j ${CPU_COUNT} check CLEANUP=true TESTS=subversion/tests/cmdline/basic_tests.py
