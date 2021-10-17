@@ -39,19 +39,19 @@ requirements:
     - cyrus-sasl  # [unix]
     - libmagic  # [unix]
     - serf  # [linux]
-    - swig
-    - perl
+    - swig  # [linux]
+    - perl  # [linux]
   run:
     - libapr
     - libaprutil
     - gettext
     - expat
-    - perl
+    - perl  # [linux]
 
 test:
   commands:
     - svn --help
-    - perl -e 'use SVN::Client; use SVN::Core;'
+    - perl -e 'use SVN::Client; use SVN::Core;'  # [linux]
 
 about:
   home: https://subversion.apache.org/
