@@ -10,7 +10,7 @@ source:
   sha256: 2c5da93c255d2e5569fa91d92457fdb65396b0666fad4fd59b22e154d986e1a9
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -39,15 +39,19 @@ requirements:
     - cyrus-sasl  # [unix]
     - libmagic  # [unix]
     - serf  # [linux]
+    - swig
+    - perl
   run:
     - libapr
     - libaprutil
     - gettext
     - expat
+    - perl
 
 test:
   commands:
     - svn --help
+    - perl -e 'use SVN::Client; use SVN::Core;'
 
 about:
   home: https://subversion.apache.org/
@@ -61,3 +65,4 @@ about:
 extra:
   recipe-maintainers:
     - scopatz
+    - zklaus

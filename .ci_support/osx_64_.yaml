@@ -7,7 +7,7 @@ c_compiler:
 c_compiler_version:
 - '11'
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
@@ -15,21 +15,19 @@ cxx_compiler:
 cxx_compiler_version:
 - '11'
 expat:
-- '2.2'
+- '2'
 lz4_c:
 - 1.9.3
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openssl:
 - 1.1.1
+perl:
+- 5.32.1
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
-  expat:
-    max_pin: x.x
   lz4-c:
-    max_pin: x.x.x
-  openssl:
     max_pin: x.x.x
   sqlite:
     max_pin: x
