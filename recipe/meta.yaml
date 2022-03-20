@@ -47,6 +47,8 @@ requirements:
     - gettext
     - expat
     - perl
+  run_constrained:
+    - python >=2.7,<3
 
 test:
   commands:
