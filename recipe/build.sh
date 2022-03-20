@@ -11,7 +11,11 @@ export CFLAGS="${CFLAGS} -U__USE_XOPEN2K -std=c99"
   --disable-static
 
 make -j ${CPU_COUNT}
-make -j ${CPU_COUNT} check CLEANUP=true TESTS=subversion/tests/cmdline/basic_tests.py
+make -j ${CPU_COUNT} check \
+     CLEANUP=true \
+     LOG_TO_STDOUT=true \
+     SET_LOG_LEVEL=debug \
+     TESTS=subversion/tests/cmdline/basic_tests.py
 make install
 
 make swig-pl-lib
