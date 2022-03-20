@@ -14,7 +14,7 @@ make -j ${CPU_COUNT}
 make -j ${CPU_COUNT} check \
      CLEANUP=true \
      LOG_TO_STDOUT=true \
-     SET_LOG_LEVEL=debug \
+     SET_LOG_LEVEL=DEBUG \
      TESTS=subversion/tests/cmdline/basic_tests.py
 make install
 
