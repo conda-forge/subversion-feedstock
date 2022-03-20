@@ -22,7 +22,7 @@ requirements:
     - pkg-config  # [unix]
     - nasm
     - make
-    - python >=2.7,<3
+    - python >=3.6
   host:
     - boost-cpp
     - libapr
@@ -47,12 +47,8 @@ requirements:
     - gettext
     - expat
     - perl
-  run_constrained:
-    - python >=2.7,<3
 
 test:
-  requires:
-    - python >=2.7,<3
   commands:
     - svn --help
     - perl -e 'use SVN::Client; use SVN::Core;'
