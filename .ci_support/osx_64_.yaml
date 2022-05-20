@@ -5,7 +5,7 @@ boost_cpp:
 c_compiler:
 - clang
 c_compiler_version:
-- '12'
+- '13'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '12'
+- '13'
 expat:
 - '2'
 lz4_c:
@@ -26,8 +26,6 @@ perl:
 - 5.32.1
 pin_run_as_build:
   boost-cpp:
-    max_pin: x.x.x
-  lz4-c:
     max_pin: x.x.x
   sqlite:
     max_pin: x
