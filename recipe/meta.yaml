@@ -23,8 +23,8 @@ requirements:
     - nasm
     - make
     - python >=2.7,<3
-    - vs2008_runtime # [win]
-    - vs2008_win-64 # [win]
+    - vs2008_runtime  # [win]
+    - vs2008_win-64  # [win]
     - vc 9  # [win]
   host:
     - boost-cpp
