@@ -21,7 +21,6 @@ requirements:
     - pkg-config  # [unix]
     - nasm
     - make
-    - python
   host:
     - boost-cpp
     - libapr
@@ -40,6 +39,8 @@ requirements:
     - serf  # [linux]
     - swig
     - perl
+    - python
+    - py3c
   run:
     - libapr
     - libaprutil
