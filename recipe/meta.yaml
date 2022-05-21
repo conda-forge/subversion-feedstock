@@ -14,17 +14,14 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}  # [unix]
-    - {{ compiler('cxx') }}  # [unix]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - autoconf  # [unix]
     - libtool  # [unix]
     - pkg-config  # [unix]
     - nasm
     - make
-    - python >=2.7,<3
-    - vs2008_runtime  # [win]
-    - vs2008_win-64  # [win]
-    - vc 9  # [win]
+    - python
   host:
     - boost-cpp
     - libapr
