@@ -10,13 +10,12 @@ source:
   sha256: c9130e8d0b75728a66f0e7038fc77052e671830d785b5616aad53b4810d3cc28
 
 build:
-  number: 1
-  #skip: true  # [win]
+  number: 2
 
 requirements:
   build:
-    - {{ compiler('c') }} # [unix]
-    - {{ compiler('cxx') }} # [unix]
+    - {{ compiler('c') }}  # [unix]
+    - {{ compiler('cxx') }}  # [unix]
     - autoconf  # [unix]
     - libtool  # [unix]
     - pkg-config  # [unix]
