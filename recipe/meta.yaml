@@ -35,8 +35,8 @@ requirements:
     - expat
     - gnupg  # [unix]
     - cyrus-sasl  # [unix]
-    - libmagic  # [unix]
-    - serf  # [linux]
+    - libmagic
+    - serf
     - swig
     - perl
     - python
