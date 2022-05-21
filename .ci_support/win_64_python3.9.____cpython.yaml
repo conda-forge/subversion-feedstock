@@ -1,9 +1,13 @@
 boost_cpp:
 - 1.74.0
+c_compiler:
+- vs2017
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+cxx_compiler:
+- vs2017
 expat:
 - '2'
 lz4_c:
@@ -15,10 +19,15 @@ perl:
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
   sqlite:
     max_pin: x
   zlib:
     max_pin: x.x
+python:
+- 3.9.* *_cpython
 sqlite:
 - '3'
 target_platform:
