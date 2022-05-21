@@ -47,6 +47,7 @@ requirements:
     - gettext
     - expat
     - perl
+    - python
 
 test:
   commands:
