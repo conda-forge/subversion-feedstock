@@ -18,7 +18,11 @@ rem fix this later
 REM 	     --with-py3c==%LIBRARY_INC% ^
 REM             --with-serf=%LIBRARY_INC% ^
 
-msbuild subversion_vcnet.sln /t:__ALL_TESTS__ /p:Configuration=Release /p:Platform=%PLATFORM%
+msbuild subversion_vcnet.sln ^
+        /t:__ALL_TESTS__ ^
+        /p:Configuration=Release ^
+        /p:Platform=%PLATFORM% ^
+        /p:WindowsTargetPlatformVersion=%WindowsSDKVer%
 if errorlevel 1 exit 1
 
 pushd Release\subversion
