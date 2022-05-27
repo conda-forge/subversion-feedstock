@@ -21,6 +21,7 @@ requirements:
     - pkg-config  # [unix]
     - nasm
     - make
+    - vs2019_runtime  # [win]
   host:
     - boost-cpp
     - libapr
