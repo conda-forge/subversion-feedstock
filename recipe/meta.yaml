@@ -21,7 +21,6 @@ requirements:
     - pkg-config  # [unix]
     - nasm
     - make
-    - vs2019_runtime  # [win]
   host:
     - boost-cpp
     - libapr
@@ -53,7 +52,7 @@ requirements:
 test:
   commands:
     - svn --help
-    - perl -e "use SVN::Client; use SVN::Core;"
+    - perl -e "use SVN::Client; use SVN::Core;"  # [linux]
 
 about:
   home: https://subversion.apache.org/
