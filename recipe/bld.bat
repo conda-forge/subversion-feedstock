@@ -4,7 +4,7 @@ if "%ARCH%"=="32" (
   set "PLATFORM=x64"
 )
 
-set
+dir %LIBRARY_PREFIX%
 
 python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
              --with-openssl=%LIBRARY_PREFIX% ^
@@ -13,7 +13,7 @@ python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
              --with-apr-util=%LIBRARY_PREFIX% ^
              --with-apr-iconv=%LIBRARY_PREFIX% ^
              --with-sqlite=%LIBRARY_PREFIX% ^
-             --with-py3c=%LIBRARY_INC% ^
+             --with-py3c=%LIBRARY_PREFIX% ^
              --release
 if errorlevel 1 exit 1
 
