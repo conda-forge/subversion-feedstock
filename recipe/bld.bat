@@ -4,6 +4,8 @@ if "%ARCH%"=="32" (
   set "PLATFORM=x64"
 )
 
+set
+
 python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
              --with-openssl=%LIBRARY_PREFIX% ^
              --with-zlib=%LIBRARY_PREFIX% ^
