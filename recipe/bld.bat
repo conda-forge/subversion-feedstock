@@ -4,7 +4,9 @@ if "%ARCH%"=="32" (
   set "PLATFORM=x64"
 )
 
-dir %LIBRARY_PREFIX%
+REM Patch: need an information file for py3c that the package does not provide
+echo "Version: 1.4 ?" > %LIBRARY_PREFIX%\py3c.pc.in
+REM end-Patch
 
 python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
              --with-openssl=%LIBRARY_PREFIX% ^
