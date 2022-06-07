@@ -10,8 +10,8 @@ source:
   sha256: c9130e8d0b75728a66f0e7038fc77052e671830d785b5616aad53b4810d3cc28
 
 build:
-  number: 1
-  skip: true  # [win]
+  number: 2
+  skip: true  # [unix]
 
 requirements:
   build:
@@ -22,7 +22,6 @@ requirements:
     - pkg-config  # [unix]
     - nasm
     - make
-    - python >=2.7,<3
   host:
     - boost-cpp
     - libapr
@@ -41,17 +40,20 @@ requirements:
     - serf  # [linux]
     - swig
     - perl
+    - python
+    - py3c
   run:
     - libapr
     - libaprutil
     - gettext
     - expat
     - perl
+    - python
 
 test:
   commands:
     - svn --help
-    - perl -e 'use SVN::Client; use SVN::Core;'
+    - perl -e "use SVN::Client; use SVN::Core;"  # [not win]
 
 about:
   home: https://subversion.apache.org/
