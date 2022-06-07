@@ -12,12 +12,11 @@ dir %LIBRARY_INC%\*serf*.*
 dir %LIBRARY_PREFIX%\*serf*.*
 
 call conda list -n base
-call conda install -n base %RECIPE_DIR%\serf-1.3.9-h77ee572_2.tar.bz2
-call conda list -n
+call conda install -n base %RECIPE_DIR%\serf-1.3.9-h77ee572_2.tar.bz2 -v
+call conda list -n base
 
 dir %LIBRARY_INC%\*serf*.*
 dir %LIBRARY_PREFIX%\*serf*.*
-exit
 
 python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
              --with-openssl=%LIBRARY_PREFIX% ^
@@ -27,8 +26,10 @@ python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
              --with-apr-iconv=%LIBRARY_PREFIX% ^
              --with-sqlite=%LIBRARY_PREFIX% ^
              --with-py3c=%LIBRARY_PREFIX% ^
+             --with-serf=%LIBRARY_PREFIX% ^
              --release
 if errorlevel 1 exit 1
+exit
 
 rem fix this later
 REM             --with-serf=%LIBRARY_INC% ^
