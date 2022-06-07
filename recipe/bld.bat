@@ -42,10 +42,6 @@ python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
              --with-serf=%LIBRARY_INC% ^
              --release
 if errorlevel 1 exit 1
-exit 1
-
-rem fix this later
-REM             --with-serf=%LIBRARY_INC% ^
 
 msbuild subversion_vcnet.sln ^
         /t:__ALL_TESTS__ ^
