@@ -8,10 +8,11 @@ REM Patch: need an information file for py3c that the package does not provide
 echo "Version: 1.4 ?" > %LIBRARY_PREFIX%\py3c.pc.in
 REM end-Patch
 
-echo  BUILD_PREFIX
-echo  %BUILD_PREFIX%
+Set-PSDebug -Trace 1
 
-dir %BUILD_PREFIX%
+REM echo  BUILD_PREFIX
+REM echo  %BUILD_PREFIX%
+REM dir %BUILD_PREFIX%
 
 echo  PREFIX
 echo  %PREFIX%
@@ -19,8 +20,8 @@ dir %PREFIX%
 
 call conda env list
 
-call conda install -n %PREFIX% %RECIPE_DIR%\serf-1.3.9-h77ee572_2.tar.bz2 -v -v
-call conda list -n %PREFIX%
+call conda install -p %PREFIX% %RECIPE_DIR%\serf-1.3.9-h77ee572_2.tar.bz2 -v -v
+call conda list -p %PREFIX%
 
 dir %LIBRARY_INC%\*serf*.*
 dir %LIBRARY_PREFIX%\*serf*.*
