@@ -14,20 +14,21 @@ REM echo  BUILD_PREFIX
 REM echo  %BUILD_PREFIX%
 REM dir %BUILD_PREFIX%
 
-echo  PREFIX
-echo  %PREFIX%
-dir %PREFIX%
+REM echo  PREFIX
+REM echo  %PREFIX%
+REM dir %PREFIX%
 
-call conda env list
+REM call conda env list
 
-call conda install -p %PREFIX% %RECIPE_DIR%\serf-1.3.9-h77ee572_2.tar.bz2 -v -v
-call conda list -p %PREFIX%
+call conda install -p %PREFIX% %RECIPE_DIR%\serf-1.3.9-h77ee572_2.tar.bz2
 
-dir %LIBRARY_INC%\*serf*.*
-dir %LIBRARY_PREFIX%\*serf*.*
-dir /s %LIBRARY_PREFIX%
+REM call conda list -p %PREFIX%
 
-call conda list -n %BUILD_PREFIX%
+REM dir %LIBRARY_INC%\*serf*.*
+REM dir %LIBRARY_PREFIX%\*serf*.*
+REM dir /s %LIBRARY_PREFIX%
+
+REM call conda list -n %BUILD_PREFIX%
 
 
 python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
@@ -38,7 +39,7 @@ python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
              --with-apr-iconv=%LIBRARY_PREFIX% ^
              --with-sqlite=%LIBRARY_PREFIX% ^
              --with-py3c=%LIBRARY_PREFIX% ^
-             --with-serf=%LIBRARY_PREFIX% ^
+             --with-serf=%LIBRARY_INC% ^
              --release
 if errorlevel 1 exit 1
 exit 1
