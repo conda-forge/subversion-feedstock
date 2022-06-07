@@ -8,15 +8,18 @@ REM Patch: need an information file for py3c that the package does not provide
 echo "Version: 1.4 ?" > %LIBRARY_PREFIX%\py3c.pc.in
 REM end-Patch
 
-dir %LIBRARY_INC%\*serf*.*
-dir %LIBRARY_PREFIX%\*serf*.*
+dir %LIBRARY_INC%
+dir %LIBRARY_PREFIX%
 
 call conda list -n base
-call conda install -n base %RECIPE_DIR%\serf-1.3.9-h77ee572_2.tar.bz2 -v
+call conda install -n base %RECIPE_DIR%\serf-1.3.9-h77ee572_2.tar.bz2 -v -v
 call conda list -n base
 
 dir %LIBRARY_INC%\*serf*.*
 dir %LIBRARY_PREFIX%\*serf*.*
+dir /s %LIBRARY_PREFIX%
+
+exit 1
 
 python gen-make.py -t vcproj --vsnet-version=%VS_YEAR% ^
              --with-openssl=%LIBRARY_PREFIX% ^
