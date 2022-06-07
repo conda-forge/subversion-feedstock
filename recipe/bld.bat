@@ -11,7 +11,9 @@ REM end-Patch
 dir %LIBRARY_INC%
 dir %LIBRARY_PREFIX%
 
-call conda list -n base
+call conda env list
+exit 1
+
 call conda install -n base %RECIPE_DIR%\serf-1.3.9-h77ee572_2.tar.bz2 -v -v
 call conda list -n base
 
