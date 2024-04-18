@@ -20,6 +20,7 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - autoconf  # [unix]
+    - gettext
     - libtool  # [unix]
     - pkg-config  # [unix]
     - nasm
@@ -35,7 +36,6 @@ requirements:
     - libdb
     - lz4-c
     - libutf8proc
-    - gettext
     - expat
     - gnupg  # [unix]
     - cyrus-sasl  # [unix]
