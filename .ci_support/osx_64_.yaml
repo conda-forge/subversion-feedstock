@@ -16,6 +16,8 @@ cxx_compiler_version:
 - '16'
 expat:
 - '2'
+libboost_devel:
+- '1.84'
 lz4_c:
 - 1.9.3
 macos_machine:
