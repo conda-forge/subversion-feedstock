@@ -16,7 +16,7 @@ build:
 requirements:
   build:
     - {{ stdlib("c") }}
-    - {{ stdlib("cxx") }}
+    - {{ compiler('cxx') }}
     - autoconf  # [unix]
     - libtool  # [unix]
     - pkg-config  # [unix]
