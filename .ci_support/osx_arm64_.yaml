@@ -20,7 +20,7 @@ cxx_compiler_version:
 - '17'
 expat:
 - '2'
-libboost_devel:
+libboost_headers:
 - '1.84'
 lz4_c:
 - 1.9.3
