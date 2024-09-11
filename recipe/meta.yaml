@@ -20,7 +20,7 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - autoconf  # [unix]
-    - gettext
+    - gettext-tools
     - libtool  # [unix]
     - pkg-config  # [unix]
     - nasm
@@ -30,6 +30,7 @@ requirements:
     - libboost-headers
     - libapr
     - libaprutil
+    - libintl-devel  # [not linux]
     - sqlite
     - zlib
     - openssl
