@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./build
 set -ex
 
 export CFLAGS="${CFLAGS} -U__USE_XOPEN2K -std=c99"
@@ -11,7 +13,9 @@ export CFLAGS="${CFLAGS} -U__USE_XOPEN2K -std=c99"
   --disable-static
 
 make -j ${CPU_COUNT}
-make -j ${CPU_COUNT} check CLEANUP=true TESTS=subversion/tests/cmdline/basic_tests.py
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
+  make -j ${CPU_COUNT} check CLEANUP=true TESTS=subversion/tests/cmdline/basic_tests.py
+fi
 make install
 
 make swig-pl-lib

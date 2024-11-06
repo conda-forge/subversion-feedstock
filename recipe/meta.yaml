@@ -10,15 +10,17 @@ source:
   sha256: 44ead116e72e480f10f123c914bb6f9f8c041711c041ed7abff1b8634a199e3c
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
   build:
+    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - autoconf  # [unix]
+    - gettext-tools
     - libtool  # [unix]
     - pkg-config  # [unix]
     - nasm
@@ -28,13 +30,13 @@ requirements:
     - libboost-headers
     - libapr
     - libaprutil
+    - libintl-devel  # [not linux]
     - sqlite
     - zlib
     - openssl
     - libdb
     - lz4-c
     - libutf8proc
-    - gettext
     - expat
     - gnupg  # [unix]
     - cyrus-sasl  # [unix]
