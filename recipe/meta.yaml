@@ -1,5 +1,5 @@
 {% set name = "subversion" %}
-{% set version = "1.14.4" %}
+{% set version = "1.14.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://downloads.apache.org/subversion/subversion-{{ version }}.tar.bz2
-  sha256: 44ead116e72e480f10f123c914bb6f9f8c041711c041ed7abff1b8634a199e3c
+  sha256: e78a29e7766b8b7b354497d08f71a55641abc53675ce1875584781aae35644a1
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
 
 requirements:
