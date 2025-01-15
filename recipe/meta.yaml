@@ -20,34 +20,32 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - autoconf  # [unix]
-    - libtool  # [unix]
-    - pkg-config  # [unix]
-    - nasm
+    - automake  # [unix]
+    - gettext-tools
     - make
+    - nasm
+    - pkg-config  # [unix]
     - python >=2.7,<3
   host:
-    - libboost-headers
-    - libapr
-    - libaprutil
-    - sqlite
-    - zlib
-    - openssl
-    - libdb
-    - lz4-c
-    - libutf8proc
-    - gettext
-    - expat
-    - gnupg  # [unix]
     - cyrus-sasl  # [unix]
-    - libmagic  # [unix]
-    - serf  # [linux]
-    - swig
-    - perl
-  run:
+    - gnupg  # [unix]
     - libapr
     - libaprutil
-    - gettext
-    - expat
+    - libboost-headers
+    - libdb
+    - libexpat
+    - libintl-devel  # [not linux]
+    - libtool  # [unix]
+    - libmagic  # [unix]
+    - libutf8proc
+    - lz4-c
+    - openssl
+    - perl
+    - serf  # [linux]
+    - sqlite
+    - swig
+    - zlib
+  run:
     - perl
 
 test:
