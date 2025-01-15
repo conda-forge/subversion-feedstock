@@ -18,6 +18,8 @@ cxx_compiler:
 - clangxx
 cxx_compiler_version:
 - '18'
+expat:
+- '2'
 libboost_headers:
 - '1.86'
 libutf8proc:
