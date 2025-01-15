@@ -11,6 +11,7 @@ source:
 
 build:
   number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -57,7 +58,6 @@ test:
 about:
   home: https://subversion.apache.org/
   license: Apache-2.0
-  license_family: APACHE
   license_file: LICENSE
   summary: Enterprise-class centralized version control for the masses
   doc_url: https://subversion.apache.org/docs/
@@ -65,6 +65,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - danielnachun
     - scopatz
     - zklaus
     - rfiorella
