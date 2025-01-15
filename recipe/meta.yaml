@@ -21,7 +21,6 @@ requirements:
     - {{ compiler('cxx') }}
     - autoconf  # [unix]
     - automake  # [unix]
-    - expat
     - gettext-tools
     - make
     - nasm
@@ -29,12 +28,12 @@ requirements:
     - python
   host:
     - cyrus-sasl  # [unix]
+    - expat
     - gnupg  # [unix]
     - libapr
     - libaprutil
     - libboost-headers
     - libdb
-    - libexpat
     - libintl-devel  # [not linux]
     - libtool  # [unix]
     - libmagic  # [unix]
