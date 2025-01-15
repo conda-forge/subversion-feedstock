@@ -21,7 +21,6 @@ requirements:
     - {{ compiler('cxx') }}
     - autoconf  # [unix]
     - automake  # [unix]
-    - expat
     - gettext-tools
     - make
     - nasm
@@ -34,7 +33,7 @@ requirements:
     - libaprutil
     - libboost-headers
     - libdb
-    - libexpat
+    - expat
     - libintl-devel  # [not linux]
     - libtool  # [unix]
     - libmagic  # [unix]
