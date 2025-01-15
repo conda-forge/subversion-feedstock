@@ -25,7 +25,7 @@ requirements:
     - make
     - nasm
     - pkg-config  # [unix]
-    - python >=2.7,<3
+    - python
   host:
     - cyrus-sasl  # [unix]
     - gnupg  # [unix]
@@ -33,7 +33,7 @@ requirements:
     - libaprutil
     - libboost-headers
     - libdb
-    - expat
+    - libexpat
     - libintl-devel  # [not linux]
     - libtool  # [unix]
     - libmagic  # [unix]

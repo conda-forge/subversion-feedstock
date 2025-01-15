@@ -3,7 +3,7 @@ set -ex
 
 export CFLAGS="${CFLAGS} -U__USE_XOPEN2K -std=c99"
 
-autoreconf --force --verbose --install
+./autogen.sh
 ./configure \
   --prefix="${PREFIX}" \
   --enable-svnxx \
