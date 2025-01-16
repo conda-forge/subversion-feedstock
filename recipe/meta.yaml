@@ -11,7 +11,8 @@ source:
 
 build:
   number: 0
-  skip: true  # [win]
+  number: 1
+  skip: true  # [win or ppc64le]
 
 requirements:
   build:
@@ -19,34 +20,32 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - autoconf  # [unix]
-    - libtool  # [unix]
-    - pkg-config  # [unix]
-    - nasm
+    - automake  # [unix]
+    - gettext-tools
     - make
-    - python >=2.7,<3
+    - nasm
+    - pkg-config  # [unix]
+    - python
   host:
-    - libboost-headers
-    - libapr
-    - libaprutil
-    - sqlite
-    - zlib
-    - openssl
-    - libdb
-    - lz4-c
-    - libutf8proc
-    - gettext
+    - cyrus-sasl  # [unix]
     - expat
     - gnupg  # [unix]
-    - cyrus-sasl  # [unix]
-    - libmagic  # [unix]
-    - serf  # [linux]
-    - swig
-    - perl
-  run:
     - libapr
     - libaprutil
-    - gettext
-    - expat
+    - libboost-headers
+    - libdb
+    - libintl-devel  # [not linux]
+    - libtool  # [unix]
+    - libmagic  # [unix]
+    - libutf8proc
+    - lz4-c
+    - openssl
+    - perl
+    - serf  # [linux]
+    - sqlite
+    - swig
+    - zlib
+  run:
     - perl
 
 test:
@@ -57,7 +56,6 @@ test:
 about:
   home: https://subversion.apache.org/
   license: Apache-2.0
-  license_family: APACHE
   license_file: LICENSE
   summary: Enterprise-class centralized version control for the masses
   doc_url: https://subversion.apache.org/docs/
@@ -65,6 +63,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - danielnachun
     - scopatz
     - zklaus
     - rfiorella
