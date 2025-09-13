@@ -23,7 +23,7 @@ expat:
 libboost_headers:
 - '1.88'
 libutf8proc:
-- '2.10'
+- '2.11'
 lz4_c:
 - '1.10'
 openssl:
