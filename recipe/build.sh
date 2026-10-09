@@ -37,6 +37,25 @@ EOF
     export PERL5OPT="-MConfigFilter${PERL5OPT:+ ${PERL5OPT}}"
 fi
 
+# Perl used for the SWIG bindings. On native Linux builds use the host perl so
+# the bindings compile against $PREFIX's CORE headers and Config; cross builds
+# cannot execute the host perl, so they keep the build perl.
+SWIG_PERL="${BUILD_PREFIX}/bin/perl"
+if [[ "${target_platform}" == linux-* ]]; then
+    if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
+        SWIG_PERL="${PREFIX}/bin/perl"
+    fi
+    # conda-forge perl's Config.pm derives the toolchain root at load time as
+    # dirname($CC)/.. and uses it for --sysroot in cccdlflags, lddlflags, etc.
+    # The compiler activation exports a bare CC (x86_64-conda-linux-gnu-cc),
+    # which yields --sysroot=./..//<triplet>/sysroot, relative to whatever
+    # directory MakeMaker compiles in. Make CC absolute so the sysroot resolves
+    # to $BUILD_PREFIX/<triplet>/sysroot. Exporting before configure means the
+    # generated Makefile's CC, and so the CC that make passes to Makefile.PL,
+    # is absolute too.
+    export CC="$(command -v "${CC}")"
+fi
+
 ./configure \
   --prefix="${PREFIX}" \
   --enable-svnxx \
@@ -48,7 +67,7 @@ fi
   --with-apr-util="${PREFIX}" \
   --with-serf="${PREFIX}" \
   --with-swig \
-  --with-swig-perl="${BUILD_PREFIX}/bin/perl" \
+  --with-swig-perl="${SWIG_PERL}" \
   "$@"
 
 
@@ -77,15 +96,15 @@ make install
 make swig-pl
 
 # Regenerate native Makefile to use correct install paths
-(cd subversion/bindings/swig/perl/native && "${BUILD_PREFIX}/bin/perl" Makefile.PL INSTALLDIRS=site)
+(cd subversion/bindings/swig/perl/native && "${SWIG_PERL}" Makefile.PL INSTALLDIRS=site)
 
 make install-swig-pl
 
 # Subversion's install-swig-pl puts perl modules under lib/site_perl/ but
 # conda perl's @INC expects them under lib/perl5/. Move them to the right place.
-# Note: perl -MConfig returns BUILD_PREFIX paths since perl is in the build env,
-# so we substitute BUILD_PREFIX with PREFIX to get the correct target path.
-SITEARCH=$("${BUILD_PREFIX}/bin/perl" -MConfig -e 'print $Config{installsitearch}')
+# Note: perl -MConfig returns BUILD_PREFIX paths when SWIG_PERL is the build
+# perl, so we substitute BUILD_PREFIX with PREFIX to get the correct target path.
+SITEARCH=$("${SWIG_PERL}" -MConfig -e 'print $Config{installsitearch}')
 SITEARCH="${SITEARCH/${BUILD_PREFIX}/${PREFIX}}"
 
 echo "=== DEBUG perl-bindings layout ==="
