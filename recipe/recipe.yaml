@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: subversion
-  version: 1.14.5
+  version: "1.15.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://downloads.apache.org/subversion/subversion-${{ version }}.tar.bz2
-  sha256: e78a29e7766b8b7b354497d08f71a55641abc53675ce1875584781aae35644a1
+  sha256: dfb7b1e5270c7def971ccbd5938b0c03b1b5bd60b6674a2d8a74a9560839fb8c
 
 build:
-  number: 5
+  number: 0
   skip: win or ppc64le
 
 requirements:
@@ -21,41 +21,38 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('cxx') }}
-    - if: unix
-      then: autoconf
-    - if: unix
-      then: automake
     - gettext-tools
     - make
     - nasm
-    - if: unix
-      then: pkg-config
     - python
     - perl
     - swig >=4.0,<4.4
+    - if: unix
+      then:
+        - autoconf
+        - automake
+        - pkg-config
   host:
-    - if: unix
-      then: cyrus-sasl
     - expat
-    - if: unix
-      then: gnupg
     - libapr
     - libaprutil
     - libboost-headers
     - libdb
-    - if: not linux
-      then: libintl-devel
-    - if: unix
-      then: libtool
-    - if: unix
-      then: libmagic
     - libutf8proc
     - lz4-c
     - openssl
     - perl
     - serf
     - sqlite
-    - zlib
+    - zlib 
+    - if: unix
+      then: 
+        - cyrus-sasl
+        - gnupg
+        - libtool
+        - libmagic
+    - if: not linux
+      then: libintl-devel
   run:
     - perl
 
