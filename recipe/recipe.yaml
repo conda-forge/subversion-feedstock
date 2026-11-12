@@ -13,7 +13,7 @@ source:
   sha256: dfb7b1e5270c7def971ccbd5938b0c03b1b5bd60b6674a2d8a74a9560839fb8c
 
 build:
-  number: 2
+  number: 3
   skip: win or ppc64le
 
 requirements:
@@ -31,7 +31,7 @@ requirements:
       then:
         - autoconf
         - automake
-        - pkg-config
+        - pkgconf
   host:
     - expat
     - libapr
