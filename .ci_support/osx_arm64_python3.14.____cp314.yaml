@@ -20,6 +20,8 @@ expat:
 - '2'
 libboost_headers:
 - '1.90'
+libintl_devel:
+- '1'
 libutf8proc:
 - '2.12'
 lz4_c:
